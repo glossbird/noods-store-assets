@@ -1,0 +1,9 @@
+# Images are LFS. A 2048x2048 icon per Operator adds up in a repo that never
+# deletes a version.
+#
+# This only works because every URL in the Item Store catalog points at
+# media.githubusercontent.com/media/, which resolves LFS content.
+# raw.githubusercontent.com serves an LFS-tracked path as a ~130 byte pointer
+# file instead of the image, and does it with a 200, so an icon URL on the raw
+# host would look fine and render nothing.
+*.png filter=lfs diff=lfs merge=lfs -text
